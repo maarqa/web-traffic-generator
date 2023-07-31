@@ -1,0 +1,24 @@
+name: Daily Script
+
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Daily at 8:00 am UTC (adjust the time zone as needed)
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'  # Replace with your desired Python version
+
+      - name: Install dependencies (if required)
+        run: pip install -r requirements.txt  # Replace with your dependencies if needed
+
+      - name: Run Python script
+        run: python traffic.py  # Replace with the actual path to your Python script
