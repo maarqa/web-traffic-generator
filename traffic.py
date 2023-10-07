@@ -31,13 +31,13 @@ reflist = ["",
 ]
 weights = [40,15,7,5,10,4,3,3,3,1,1,1,1,1,1,1,1,1,1]
 no = 0
-for i in range(1000):
+for i in range(5000):
      referer_url ="".join(random.choices(reflist,weights= weights))
      headers = {'User-Agent': random.choice(user_agents),'Referer': referer_url}
      
      response = requests.get(url, headers=headers)
      no +=1
      
-     sleep = random.randint(2,10)
+     sleep = random.randint(2,5)
      print(f"Views: {no} From:{referer_url} Sleeping For:{sleep}s Result:{response.status_code}")
      time.sleep(sleep)
